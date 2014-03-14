@@ -1,3 +1,6 @@
+var app = angular.module('angD3',[]);
+
+/*
 
 var width = 960,
     height = 500,
@@ -58,4 +61,4 @@ function arcTween(a) {
   return function(t) {
     return arc(i(t));
   };
-}
+}*/

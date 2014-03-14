@@ -1,8 +1,5 @@
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  margin: auto;
-  position: relative;
-  width: 960px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;  
 }
 
 text {
@@ -22,7 +19,7 @@ input, textarea {
     border-radius: 5px;
     color: #3A3A3A;
     font-size: 0.9em;
-    height: 13px;
+    height: 20px;
     margin-top: 4px;
     padding: 7px;
     width: 100px;

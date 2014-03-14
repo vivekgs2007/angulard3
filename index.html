@@ -1,23 +1,33 @@
-<!DOCTYPE html>
-<html ng-app='ngd3'>
-<meta charset="utf-8">
-<head>
-  <title>Angular.js with D3.js</title>
-   <link href="static.css" media="all" rel="stylesheet" type="text/css" />
-  <script src="d3.v3.min.js"></script>
-  <script src="angular.min.js"></script>
-  <script src="static.js"></script>
+<!doctype html>
+<html lang="en" data-framework="angularjs">
+  <head>
+  <title>D3.js with Angular.js</title>
+  <meta charset="utf-8">
+  <link href="./static.css" media="all" rel="stylesheet" type="text/css" />  
 </head>
-<body>
-  <div ng-controller="d3donut">
-    <section class="body">
+<body ng-app="angD3" >
+  <div ng-controller="d3donut" >
+    <section class="form">
       <label>Angular.js</label>
-      <input placeholder="Type Here only Numbers" name="angular" />
+      <input placeholder="Numbers Only" name="angular" />
       <label>D3.js</label>
-      <input type="email" placeholder="Type Here only Numbers" name="d3" /> 
-      <div class="clearfix"></div>          
-      <a class="button" href="#">Push</a>        
+      <input type="text" placeholder="Numbers Only" name="d3" /> 
+      <div class="clearfix"></div> 
+      <button class="button" ng-click="pushJson()"> Push</button>               
+    </section>
+    <section class="repeat">
+      <ul>
+        <li ng-repeat="jsonObj in jsonObjs">
+          {{jsonObj.d3}}
+        </li>
+      </ul>
     </section>
   </div>
+  <script type="text/javascript" src="./angular.min.js"></script>
+  <script type="text/javascript" src="./d3.v3.min.js"></script>  
+  <script type="text/javascript" src="./static.js"></script>
+  <script type="text/javascript" src="./controller.js"></script>
+  <script type="text/javascript" src="./directive.js"></script>
+  <script type="text/javascript" src="./service.js"></script>
 </body>
 </html>
