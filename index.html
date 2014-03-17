@@ -3,31 +3,41 @@
   <head>
   <title>D3.js with Angular.js</title>
   <meta charset="utf-8">
-  <link href="./static.css" media="all" rel="stylesheet" type="text/css" />  
+  <link href="./public/css/static.css" media="all" rel="stylesheet" type="text/css" />  
 </head>
 <body ng-app="angD3" >
-  <div ng-controller="d3donut" >
-    <section class="form">
-      <label>Angular.js</label>
-      <input placeholder="Numbers Only" name="angular" />
-      <label>D3.js</label>
-      <input type="text" placeholder="Numbers Only" name="d3" /> 
-      <div class="clearfix"></div> 
-      <button class="button" ng-click="pushJson()"> Push</button>               
-    </section>
-    <section class="repeat">
-      <ul>
-        <li ng-repeat="jsonObj in jsonObjs">
-          {{jsonObj.d3}}
-        </li>
-      </ul>
-    </section>
+  <div ng-controller="d3donut" class="d3donut">
+  <div class="tableform">
+      <section class="form">
+        <label>Angular.js</label>
+        <input placeholder="Numbers Only" name="angular" ng-model="angular" />
+        <label>D3.js</label>
+        <input type="text" placeholder="Numbers Only" name="d3" ng-model="d3"/> 
+        <div class="clearfix"></div> 
+        <button class="button" ng-click="pushJson()"> Push</button>               
+      </section>
+      <section class="repeat">
+        <table>
+          <tr>
+              <th>Angular.js</th>
+              <th>D3.js</th>
+          </tr>
+          <tr ng-repeat="jsonObj in jsonObjs">          
+              <td>{{jsonObj.angular}}</td>
+              <td>{{jsonObj.d3}}</td>
+          </tr>
+        </table>
+      </section>
+    </div>
+    <div class="d3chart">
+      <d3chart></d3chart>
+    </div>
   </div>
-  <script type="text/javascript" src="./angular.min.js"></script>
-  <script type="text/javascript" src="./d3.v3.min.js"></script>  
-  <script type="text/javascript" src="./static.js"></script>
-  <script type="text/javascript" src="./controller.js"></script>
-  <script type="text/javascript" src="./directive.js"></script>
-  <script type="text/javascript" src="./service.js"></script>
+  <script type="text/javascript" src="./public/js/angular.min.js"></script>
+  <script type="text/javascript" src="./public/js/d3.v3.min.js"></script>  
+  <script type="text/javascript" src="./public/js/static.js"></script>
+  <script type="text/javascript" src="./public/js/controller.js"></script>
+  <script type="text/javascript" src="./public/js/directive.js"></script>
+  <script type="text/javascript" src="./public/js/service.js"></script>
 </body>
 </html>
