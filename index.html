@@ -9,22 +9,26 @@
   <div ng-controller="d3donut" class="d3donut">
   <div class="tableform">
       <section class="form">
-        <label>Angular.js</label>
-        <input placeholder="Numbers Only" name="angular" ng-model="angular" />
-        <label>D3.js</label>
-        <input type="text" placeholder="Numbers Only" name="d3" ng-model="d3"/> 
-        <div class="clearfix"></div> 
-        <button class="button" ng-click="pushJson()"> Push</button>               
+        <form ng-submit="pushJson()">
+          <label>Angular.js</label>
+          <input placeholder="Numbers Only" name="angular" ng-model="angular" />
+          <label>D3.js</label>
+          <input type="text" placeholder="Numbers Only" name="d3" ng-model="d3"/> 
+          <div class="clearfix"></div> 
+          <button class="button" type="submit"> Push</button>  
+        </form>             
       </section>
       <section class="repeat">
         <table>
           <tr>
               <th>Angular.js</th>
               <th>D3.js</th>
+              <th>Remove</th>
           </tr>
           <tr ng-repeat="jsonObj in jsonObjs">          
               <td>{{jsonObj.angular}}</td>
               <td>{{jsonObj.d3}}</td>
+              <td><a href="javascript:void(0)" ng-click="removeJson($index)" > Delete </a></td>
           </tr>
         </table>
       </section>
