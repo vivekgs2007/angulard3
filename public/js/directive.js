@@ -2,14 +2,6 @@ app.directive('d3chart', function (jsondata) {
     return {
       restrict: 'E',      
       link: function (scope, elem, attrs) {        
-        jsondata.getJsonData().then(function(response){   
-
-          var rows = response.data;
-          var dataArr = [];
-          for(row in rows){
-              dataArr.push(rows[row].d3);
-              // dataArr.push(rows[row].angular); // TO view the angular
-          }
           var width = 560,
             height = 600,
             radius = Math.min(width, height) / 2;
@@ -46,8 +38,6 @@ app.directive('d3chart', function (jsondata) {
                 .attr("fill", function(d, i) { return color(i); })
                 .attr("d", arc);
           }  
-          scope.rerender(dataArr);
-        });
       }
     }    
 });    
