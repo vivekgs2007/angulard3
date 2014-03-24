@@ -22,6 +22,8 @@ app.directive('d3chart', function (jsondata) {
               scope.rerender(dataArr);
           });
 
+          
+
           scope.rerender = function(dataArr){ 
             svg.selectAll("*").remove();           
             var color = d3.scale.category20();
@@ -33,11 +35,27 @@ app.directive('d3chart', function (jsondata) {
                 .innerRadius(radius - 100)
                 .outerRadius(radius - 50);
 
+            var tooltip = d3.select(elem[0]).append("div")
+            .attr("class", "tooltip");
+
             var path = svg.selectAll("path")
                 .data(pie(dataArr))
-              .enter().append("path")
+                .enter().append("path")
                 .attr("fill", function(d, i) { return color(i); })
-                .attr("d", arc);
+                .attr("d", arc)
+                .on("mousemove", function(d,i) {
+                var mouse = d3.mouse(svg.node()).map( function(d) { return parseInt(d); } );
+                var textKey = 'Angular.js';
+                if(i % 2 == 0){
+                  textKey = 'D3.js';
+                }
+                tooltip.classed("hidden", false)
+                  .attr("style", "left:"+(mouse[0]+225)+"px;top:"+(mouse[1]+255)+"px")
+                  .html(textKey+ ' :  ' +d.data)
+                })
+              .on("mouseout",  function(d,i) {
+                tooltip.classed("hidden", true)
+              })
           }  
       }
     }    
