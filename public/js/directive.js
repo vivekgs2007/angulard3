@@ -17,6 +17,7 @@ app.directive('d3chart', function (jsondata) {
               var dataArr = [];
               for(row in scope.jsonObjs){
                   dataArr.push(scope.jsonObjs[row].d3);
+                  dataArr.push(scope.jsonObjs[row].angular);
               }              
               scope.rerender(dataArr);
           });
